@@ -13,5 +13,5 @@ spring:
   application:
     name: product-service
     
-# env:test
-branch:test
+env:test
+# branch:test
