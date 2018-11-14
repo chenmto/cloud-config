@@ -19,5 +19,5 @@ management:
       exposure:
         include: "*"
     
-env: test2018
+env: test2020
 branch: master
