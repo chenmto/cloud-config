@@ -1,13 +1,6 @@
 server:
   port: 8781
 
-
-#指定注册中心地址
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-
 #服务的名称
 spring:
   rabbitmq:
@@ -15,17 +8,15 @@ spring:
     port: 5672
     username: guest
     password: guest
-  application:
-    name: order-service
   redis:
     database: 0
     host: 127.0.0.1
     port: 6379
     timeout: 2000
-#    zipkin服务注册所在地址
+#zipkin服务所在地址
   zipkin:
-    base-url: http://localhost:9411
-#    配置采用百分比 可以改为1 生产环境建议默认配置
+    base-url: http://localhost:9411/
+#配置采样百分比,开发环境可以设置为1，表示全部，生产就用默认
   sleuth:
     sampler:
       probability: 1
@@ -34,7 +25,6 @@ spring:
 product-service:
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-
 
 #修改调用超时时间
 feign:
@@ -46,23 +36,6 @@ feign:
         connectTimeout: 2000
         readTimeout: 1000
 
-#暴露全部监控信息
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-
-#把hystrix超时时间禁用
-#hystrix:
-#  command:
-#    default:
-#      execution:
-#        timeout:
-#          enabled: false
-
-#execution.isolation.thread.timeoutInMilliseconds=4000
-
 #设置超时时间
 hystrix:
   command:
@@ -72,3 +45,9 @@ hystrix:
           thread:
             timeoutInMilliseconds: 1000
 
+#暴露全部的监控信息
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
