@@ -1,23 +1,27 @@
 server:
-  port: 8773
+  port: 8771
 
 
-# #指定注册中心地址
-# eureka:
-#   client:
-#     serviceUrl:
-#       defaultZone: http://localhost:8761/eureka/
+#指定注册中心地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 
-# #服务的名称
-# spring:
-#   application:
-#     name: product-service
+#服务的名称
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
+
+#暴露全部监控信息
 management:
   endpoints:
     web:
       exposure:
         include: "*"
-    
-env: test2020
+env: test
 branch: master
