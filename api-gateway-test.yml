@@ -26,6 +26,7 @@ zuul:
   routes:
     order-service: /apigateway/order/**
     product-service: /apigateway/product/**
+    user-service: /apigateway/user/**
   ignored-patterns: /*-service/**
   sensitive-headers:
 #  ignored-services: product-service
