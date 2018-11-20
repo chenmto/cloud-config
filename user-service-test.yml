@@ -17,6 +17,15 @@ spring:
     password: guest
 
 
+datasource:
+  url: jdbc:mysql://localhost:3306/zyd?useUnicode=true&characterEncoding=utf-8
+  username: root
+  password: root
+  type: com.alibaba.druid.pool.DruidDataSource
+#开启打印sql
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 #暴露全部监控信息
 management:
   endpoints:
